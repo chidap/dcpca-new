@@ -1,0 +1,31 @@
+
+<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'slide'" interval = "10000">
+  <mdb-slide *ngFor = "let testimonial of testimonials">
+  <!--Card-->
+    <div class="col-md-12 clearfix d-none d-md-block">
+      <div class="card testimonial-card">
+
+      <!--Bacground color-->
+        <div class="card-up card-header indigo lighten-1 white-text">
+          What members feel about DCPCA
+        </div>
+        
+        <!--Avatar-->
+        <div class="avatar mx-auto"><img [src]="testimonial.pic" class="rounded-circle" width = "200">
+        </div>
+
+        <div class="card-body">
+            <!--Name-->
+            <h4 class="card-title">{{testimonial.name}}</h4>
+            <hr>
+            <!--Quotation-->
+            <p><i class="fa fa-quote-left"></i> {{testimonial.feedback}}</p>
+        </div>
+
+
+      </div>
+    </div>
+    <!--/.Card-->
+  </mdb-slide>
+</mdb-carousel>
+
