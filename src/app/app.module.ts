@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -10,6 +11,7 @@ import { BannerComponent } from './home/banner/banner.component';
 import { MainComponent } from './home/main/main.component';
 import { TestimonialComponent } from './home/testimonial/testimonial.component';
 import { CurrentNewsComponent } from './home/current-news/current-news.component';
+import { MemberComponent } from './member/member.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { CurrentNewsComponent } from './home/current-news/current-news.component
     BannerComponent,
     MainComponent,
     TestimonialComponent,
-    CurrentNewsComponent
+    CurrentNewsComponent,
+    MemberComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

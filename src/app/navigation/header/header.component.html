@@ -1,6 +1,6 @@
 <mdb-navbar SideClass="navbar  navbar-expand-lg navbar-dark indigo scrolling-navbar" [containerInside]="false">
   <logo>
-      <a class="logo navbar-brand" href="#">
+      <a class="logo navbar-brand" routerLink = "" >
         <img src = "./../../assets/images/logo.jpg" alt = "logo" id = "logo" height = "50">
       </a>
   </logo>
@@ -8,7 +8,7 @@
     <ul class="navbar-nav mr-auto"></ul>
       <ul class="navbar-nav mr-auto">
           <li class="nav-item active waves-light" mdbRippleRadius>
-              <a class="nav-link"><i class = "fa fa-home" ></i> Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" routerLink = "" ><i class = "fa fa-home" ></i> Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item waves-light" mdbRippleRadius>
               <a class="nav-link">About Us</a>
@@ -33,7 +33,7 @@
 
       <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item waves-light" mdbRippleRadius>
-              <a class="nav-link"><i class = "fa fa-users" ></i> Members</a>
+              <a class="nav-link" routerLink = "/member"><i class = "fa fa-users"  ></i> Members</a>
           </li>
           <li class="nav-item dropdown btn-group" dropdown>
               <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
