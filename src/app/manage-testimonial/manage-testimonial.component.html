@@ -1,0 +1,69 @@
+
+  <!--Modal: Contact form-->
+  <div class="modal-dialog cascading-modal" role="document">
+
+      <!--Content-->
+      <div class="modal-content">
+
+          <!--Header-->
+          
+          <div class="modal-header primary-color white-text">
+              <h4 class="title">
+                  <i class="fa fa-pencil"></i> Add Testimonial</h4>
+              <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+          <!--Body-->
+          <form [formGroup] = "form" (submit) = "onAddTestimonial()" >
+            <div class="modal-body">
+
+                <!-- Material input name -->
+                <div class="md-form form-sm">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input mdbInputDirective type="text"  id = "name" formControlName = "name" class="form-control form-control-sm" >
+                    <label for = "name" >Your name</label>
+                </div>
+
+                <!-- Material input email -->
+                <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <input mdbInputDirective type="email" id="emailid" formControlName = "emailid" class="form-control form-control-sm" >
+                    <label for="emailid">Your email</label>
+                </div>
+
+                <!-- Material input subject -->
+                <div class="md-form form-sm">
+                    <i class="fa fa-tag prefix"></i>
+                    <input mdbInputDirective type="text" id="mobileno" formControlName = "mobileno" class="form-control form-control-sm" >
+                    <label for="mobileno">Mobile No</label>
+                </div>
+
+                <div class = "md-form form-sm">
+                    <button class = "btn btn-primary" type = "button" (click) = "filePicker.click()">Upload Image</button>
+                    <input type = "file" #filePicker (change) = "onImagePicked($event)">
+                    <div class="image-preview" *ngIf = "imagePreview !== '' && imagePreview && form.get('picture').valid" >
+                        <img [src] = "imagePreview" [alt] = "form.value.name">
+                    </div>
+                </div>
+
+
+                <!-- Material textarea message -->
+                <div class="md-form form-sm">
+                    <i class="fa fa-pencil prefix"></i>
+                    <textarea mdbInputDirective type="text" id="feedback" formControlName = "feedback" class="md-textarea form-control" ></textarea>
+                    <label for="feedback">Your Feedback</label>
+                </div>
+
+                <div class="text-center mt-4 mb-2">
+                    <button class="btn btn-primary" type = "submit">Submit
+                        <i class="fa fa-send ml-2"></i>
+                    </button>
+                </div>
+
+            </div>
+          </form>
+        </div>
+      <!--/.Content-->
+  </div>
+

@@ -6,14 +6,14 @@
   <mdb-slide *ngFor = "let testimonial of testimonials">
   <!--Card-->
     <div class="col-md-12 ">
-      <div class="card mb-2">  
+      <div class="card mb-2"> 
 
       
         <div class="card-up card-header indigo lighten-1 white-text">
           What members feel about DCPCA
         </div>
         <!--Avatar-->
-        <div class="avatar mx-auto"><img [src]="testimonial.pic" class="rounded-circle img-responsive" width = "200">
+        <div class="avatar mx-auto"><img [src]="testimonial.imagePath" class="rounded-circle img-responsive" width = "200" >
         </div>
 
         <div class="card-body">
@@ -21,9 +21,9 @@
             <h4 class="card-title">{{testimonial.name}}</h4>
             <hr>
             <!--Quotation-->
-            <p class="card-text"><i class="fa fa-quote-left"></i> {{testimonial.feedback}} dfdfddfd dfdfdfdfdf dfdfdffdffddf</p>
+            <p class="card-text"><i class="fa fa-quote-left"></i> {{testimonial.feedback}}</p>
         </div>
-
+        <button class="btn btn-danger" type = "button" (click) = "onDelete(testimonial.id)">Delete</button>
       </div>  
       
     </div>

@@ -1,19 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { TestimonialService } from '../../providers/testimonials.service';
+import { Testimonial } from './../../models/testimonial.model';
 
 @Component({
   selector: 'app-testimonial',
   templateUrl: './testimonial.component.html',
   styleUrls: ['./testimonial.component.scss']
 })
-export class TestimonialComponent implements OnInit {
-  testimonials = [
-    { 'name': 'Anna Doe', 'pic': 'https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg', 'feedback': 'Had a great experience at DCPCA during Durga Puja '},
-    { 'name': 'Chidananda Patra', 'pic': './../../assets/images/contact/chidap.jpg', 'feedback': 'DCPCA conducts the best Durga puja in Chennai'},
-    { 'name': 'Subhajit Patra', 'pic': './../../assets/images/contact/subhajitp.jpg', 'feedback': 'DCPCA Rocks!'}
-  ];
-  constructor() { }
+export class TestimonialComponent implements OnInit, OnDestroy {
+  testimonials: Testimonial[] = [];
+  private testimonialSub: Subscription;
+  constructor( private testimonialService: TestimonialService) { }
 
   ngOnInit() {
+    this.testimonialService.getTestimonial();
+    this.testimonialSub = this.testimonialService.getTestimonialUpdateListener()
+        .subscribe((testimonials: Testimonial[]) => {
+            this.testimonials = testimonials;
+            console.log(testimonials);
+        })
+  }
+
+  ngOnDestroy() {
+    this.testimonialSub.unsubscribe();
+  }
+
+  onDelete(testimonialId: string) {
+    this.testimonialService.deleteTestimonial(testimonialId);
+    console.log('testimonial id = ', testimonialId);
   }
 
 }
